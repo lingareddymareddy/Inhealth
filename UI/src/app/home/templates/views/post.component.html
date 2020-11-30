@@ -1,0 +1,24 @@
+<!-- {{post|json}}  -->
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>            
+      <h1 class="mat-h1" [innerHTML]="post.name"></h1>            
+    </mat-card-title>
+  </mat-card-header>
+            <mat-card-content>
+              <div [innerHTML]="post.description"></div>            
+            </mat-card-content>
+            <mat-card-actions>               
+              <button mat-raised-button color="warn" class="btndeletepost" type="button" (click)="deletePost(post.id)" *ngIf="isUserLoggedIn()">Delete</button> 
+              <button mat-raised-button color="primary" class="btngotoposts" type="button" (click)="naviagateToHome()">Go to All Posts</button> 
+              <!-- <button mat-raised-button class="btnaddpostcomment" type="button" (click)="addComments(post.id)">Add Comments</button>  -->
+          </mat-card-actions>
+          </mat-card> 
+
+   <div fxLayout="row" fxLayoutAlign="space-between none">
+    <post-comment [postId]="post.id" fxFlex="60"></post-comment>
+    <post-comment-add [postId]="post.id" fxFlex="40"></post-comment-add></div>
+  
+  
+        
+          

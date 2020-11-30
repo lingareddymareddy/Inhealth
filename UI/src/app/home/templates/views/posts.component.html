@@ -1,0 +1,22 @@
+<div class="grid-container">
+    <h1 class="mat-h1">Latest Posts</h1>    
+    <mat-grid-list cols="3" rowWidth="300px" rowHeight="400px">
+        <mat-grid-tile *ngFor="let post of posts" >    
+          <mat-card class="dashboard-card">
+            <mat-card-header>
+              <mat-card-title>
+                <h2 class="mat-h2">{{(post.name.length>100)? (post.name | slice:0:100)+'..':(post.name)}}  </h2>            
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <div [innerHTML]="(post.description.length>500)? (post.description | slice:0:500)+'..':(post.description)"></div>            
+            </mat-card-content>
+            <mat-card-actions align="end">               
+              <button mat-raised-button color="warn" class="btndeletepost" type="button" (click)="deletePost(post.id)" *ngIf="isUserLoggedIn()">Delete</button> 
+              <button mat-stroked-button color="accent" class="btnaddpostcomment" type="button" (click)="addComments(post)">Read More</button> 
+              <button mat-raised-button class="btnaddpostcomment" type="button" (click)="addComments(post)">Add Comments</button> 
+          </mat-card-actions>
+          </mat-card>
+        </mat-grid-tile>
+      </mat-grid-list>
+</div>

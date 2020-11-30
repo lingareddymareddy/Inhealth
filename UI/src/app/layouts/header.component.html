@@ -1,0 +1,46 @@
+<div>
+    <mat-toolbar color="secondary" class="rpa-navigation-bar header-container">
+      <mat-toolbar-row >
+        <span class="toolbar-title" (click)="naviagateToHome()"> <img [src]="logoPath" routerLink = "/dashboard/home" class="companyLogo" /></span>
+        <div fxFlex fxLayoutAlign="end start">  
+          <ul fxLayout  fxLayoutGap="60px" class="navigation-items" >
+            <li *ngIf="displayUserActionPane === true">
+              <button mat-icon-button (click)="naviagateToNewPost()">
+                <mat-icon>post_add</mat-icon>
+                <span>New Post</span>
+              </button>
+            </li>
+            <li *ngIf="displayUserActionPane === true">             
+              <button style="margin-right: 120px;" mat-icon-button [matMenuTriggerFor]="auth">
+                <mat-icon>person_outline</mat-icon>
+                <span>{{loginUserName}}</span>
+              </button>
+              <mat-menu #auth="matMenu"> 
+                <button mat-menu-item (click)="naviagateToAdmin()"  *ngIf="isAdminUser === true">
+                  <mat-icon>settings</mat-icon>
+                  <span>User Management</span>
+                </button>  
+                <button mat-menu-item (click)="logout()">
+                  <mat-icon>power_settings_new</mat-icon> 
+                  <span>Log Out</span>             
+                   </button>            
+              </mat-menu>
+            </li>  
+           
+            <li *ngIf="displayUserActionPane === false">
+              <button mat-icon-button (click)="naviagateToLogin()">
+              <mat-icon>lock_open</mat-icon>
+              <span>Login</span>                   
+              </button>
+            </li>
+            <li *ngIf="displayUserActionPane === false">
+               <button style="margin-right: 60px;" mat-icon-button (click)="naviagateToRegister()">
+               <mat-icon>login</mat-icon> 
+               <span>Register</span>                  
+                </button>
+            </li>            
+        </ul>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>

@@ -1,0 +1,37 @@
+<div fxLayout="row" fxLayoutAlign="left stretch <main-axis> <cross-axis>">
+  <div fxLayout="column">
+  <mat-form-field>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+</mat-form-field>
+</div></div>
+<mat-table id="usersTable" [dataSource]="dataSource" matSort class="mat-elevation-z8 example-margin">
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header [style.display]="'none'"> ID </mat-header-cell>
+      <mat-cell *matCellDef="let row" [style.display]="'none'"> {{row.id}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="userName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> User Name </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.email}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="createdOn">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Created Date </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.createdOn}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="isActive">
+        <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+            <section class="example-section">
+                <mat-checkbox class="example-margin" [checked]="row.isActive" [value]="row.isActive" [disabled]="true">Active</mat-checkbox>
+                <mat-checkbox class="example-margin" (change)="updateUser($event,row,true)" [checked]="row.isAdmin" [value]="row.isAdmin">Admin</mat-checkbox>
+                <mat-checkbox class="example-margin" (change)="updateUser($event,row,false)" [checked]="row.isDeleted" [value]="row.isDeleted" [disabled]="row.isAdmin">Delete</mat-checkbox>
+            </section>
+        </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20, 50]" showFirstLastButtons></mat-paginator>

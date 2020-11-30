@@ -1,0 +1,12 @@
+<div class="grid-container">
+    <h1 class="mat-h1">Comments</h1> 
+    <ul>
+        <li *ngFor="let comment of comments">
+            <mat-card>
+                <p><small><i color="warn">Commented On: {{comment.createdOn.toLocaleString()}}</i></small></p>
+                <div [innerHTML]="comment.comment"></div>                          
+            </mat-card>
+        </li>
+    </ul>  
+</div>
+

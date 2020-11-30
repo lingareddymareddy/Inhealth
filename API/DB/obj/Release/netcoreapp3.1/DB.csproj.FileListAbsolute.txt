@@ -1,0 +1,12 @@
+D:\Work\Interview\inHealth\Assessment\api\DB\bin\Release\netcoreapp3.1\DB.deps.json
+D:\Work\Interview\inHealth\Assessment\api\DB\bin\Release\netcoreapp3.1\DB.runtimeconfig.json
+D:\Work\Interview\inHealth\Assessment\api\DB\bin\Release\netcoreapp3.1\DB.runtimeconfig.dev.json
+D:\Work\Interview\inHealth\Assessment\api\DB\bin\Release\netcoreapp3.1\DB.dll
+D:\Work\Interview\inHealth\Assessment\api\DB\bin\Release\netcoreapp3.1\DB.pdb
+D:\Work\Interview\inHealth\Assessment\api\DB\obj\Release\netcoreapp3.1\DB.csprojAssemblyReference.cache
+D:\Work\Interview\inHealth\Assessment\api\DB\obj\Release\netcoreapp3.1\DB.AssemblyInfoInputs.cache
+D:\Work\Interview\inHealth\Assessment\api\DB\obj\Release\netcoreapp3.1\DB.AssemblyInfo.cs
+D:\Work\Interview\inHealth\Assessment\api\DB\obj\Release\netcoreapp3.1\DB.csproj.CoreCompileInputs.cache
+D:\Work\Interview\inHealth\Assessment\api\DB\obj\Release\netcoreapp3.1\DB.dll
+D:\Work\Interview\inHealth\Assessment\api\DB\obj\Release\netcoreapp3.1\DB.pdb
+D:\Work\Interview\inHealth\Assessment\api\DB\obj\Release\netcoreapp3.1\DB.genruntimeconfig.cache

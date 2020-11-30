@@ -1,0 +1,55 @@
+
+<div fxLayout="row" fxLayoutAlign="center" class="add-post-main">
+    <mat-card style="min-width:50%">
+        <form [formGroup]="addpostForm" (ngSubmit)="addpost(addpostForm.value, addpostForm.valid)" novalidate>
+            <mat-card-header style="justify-content: center;">
+                  <mat-card-title>Create New Post</mat-card-title>
+            </mat-card-header>
+            <mat-card-content fxLayout="column">
+                <mat-error *ngIf="displayAddPostFailure()">
+                    {{error}}
+                </mat-error>
+                  <mat-form-field>
+                        <input matInput type="text" placeholder="Title*" formControlName="name">
+                    <mat-error *ngIf="addpostForm.get('name').errors?.required">Title is required.</mat-error>
+                </mat-form-field>                 
+                    <angular-editor formControlName="description" [config]="config"></angular-editor>
+                    
+                           
+            </mat-card-content>
+            <mat-card-actions align="end"> 
+                 <button mat-raised-button color="danger" class="btncancel" type="button" (click)="naviagateToHome()"
+                *ngIf="isUserLoggedIn()">Cancel</button> 
+                 <button mat-raised-button color="primary" class="btnaddpost" type="submit"
+                    [disabled]="addpostForm.invalid">Add Post</button>
+            </mat-card-actions>
+        </form>
+    </mat-card>
+   <!-- <mat-card style="min-width:50%">
+        <form [formGroup]="addpostForm" (ngSubmit)="addpost(addpostForm.value, addpostForm.valid)" novalidate>
+            <mat-card-header style="justify-content: center;">
+                  <mat-card-title>Create New Post</mat-card-title>
+            </mat-card-header>
+            <mat-card-content fxLayout="column">
+                <mat-error *ngIf="displayAddPostFailure()">
+                    {{error}}
+                </mat-error>
+                  <mat-form-field>
+                        <input matInput type="text" placeholder="Title*" formControlName="name">
+                    <mat-error *ngIf="addpostForm.get('name').errors?.required">Name is required.</mat-error>
+                </mat-form-field>
+                <mat-form-field>                    
+                    <angular-editor [(ngModel)]="htmlContent" [config]="config" formControlName="description"></angular-editor>
+                    <!--     <input matInput type="text" width="500" height="300" placeholder="Add your input*" formControlName="description"> --
+                    <mat-error *ngIf="addpostForm.get('description').errors?.required">Description is required.</mat-error>
+                </mat-form-field>                
+            </mat-card-content>
+            <mat-card-actions align="end"> 
+                 <button mat-raised-button color="danger" class="btncancel" (onclick)="naviagateToHome()"
+                    >Cancel</button> 
+                 <button mat-raised-button color="primary" class="btnaddpost" type="submit"
+                    [disabled]="addpostForm.invalid">Add Post</button>
+            </mat-card-actions>
+        </form>
+    </mat-card>-->
+</div>
